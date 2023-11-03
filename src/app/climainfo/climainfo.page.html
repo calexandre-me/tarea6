@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>El clima ahora en RD</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container-climainfo">
+    <div id="hora">{{ time | date: 'hh:mm:ss a' }}</div>
+    <div id="clima-info">
+      <img src="{{climaImgUrl}}" alt="Resultado del Request">
+      <p>{{climaN}}</p>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Listado de universidades</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container-buniversidades">
+
+    <div id="decoration">
+      <img src="/assets/images/univ.png" alt="Genero decoracion">
+    </div>
+
+    <div id="info-indicator">
+      <ion-button id="click-trigger">
+        Info <ion-icon name="help-circle-outline" size="auto"></ion-icon> 
+      </ion-button>
+      <ion-popover trigger="click-trigger" triggerAction="click">
+        <ng-template>
+          <ion-content style="font-size: 14px;" class="ion-padding">
+            <p>En la cajita de texto abajo, escribe el nombre de un pa&iacute;s y se le mostrar&aacute; una lista de las universidades disponibles en este pa&iacute;s.</p>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </div>
+
+    <ion-item >
+      <ion-input [(ngModel)]="pais"  style="text-align: center;" placeholder="Nombre del pais"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="buscaruniv()" size="default" expand="block">Buscar</ion-button>
+
+    <div id="listado" *ngIf="listItem">
+      <h4>Aqui la lista de las universidades que encontremos:</h4>
+      <ion-list>
+        <ion-item *ngFor="let index of bridge">
+          <div id="thumbnail">
+            <img src="/assets/images/icons/univ-icon.png" alt="Icon de una universidad">
+          </div>
+          <div id="details">
+            <span class="utitle">{{nombre[index]}}</span>
+            <span class="udomain">{{domain[index]}}</span>
+            <span class="uurl"><a href="{{url[index]}}">{{url[index]}}</a> </span>
+          </div>
+          
+        </ion-item>
+        
+      </ion-list>
+    </div>
+    <div id="notice" *ngIf="error">
+      Hub&oacute; un error o nombre de pa&iacute;s invalido
+    </div>
+    
+
+  </div>
+  
+
+</ion-content>

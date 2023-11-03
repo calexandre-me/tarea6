@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Predictor de edad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container-epredictor">
+    
+    <div id="info-indicator">
+      <ion-button id="click-trigger">
+        Info <ion-icon name="help-circle-outline" size="auto"></ion-icon> 
+      </ion-button>
+      <ion-popover trigger="click-trigger" triggerAction="click">
+        <ng-template>
+          <ion-content style="font-size: 14px;" class="ion-padding">
+            <p>En la cajita de texto abajo, escribe un nombre valido de persona y se le indicar&aacute; la edad aproximativa de esta persona y una imagen descriptiva que corresponde.</p>
+            <p>Rangos de edad (a&nacute;os):</p>
+            <ul>
+              <li>Ni&nacute;o: 0 - 12</li>
+              <li>Adolescenter: 12 - 17</li>
+              <li>Adulto: 18 - 59</li>
+              <li>Anciano: 60 - X</li>
+            </ul>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </div>
+
+    <ion-item >
+      <ion-input [(ngModel)]="nombre"  style="text-align: center;" placeholder="Escribe un nombre aqui"></ion-input>
+    </ion-item>
+    
+    <ion-button (click)="epredecir()" size="default" expand="block">VERIFICAR</ion-button>
+    <p>Resultado: {{ageL}} a&nacute;os</p>
+    <section id="result-option" *ngIf="ok">
+      <div class="rango actives" id="r1">
+        <img src="/assets/images/icons/baby.png" alt="Imagen de bebe">
+        <span>Es un ni&nacute;o</span>
+      </div>
+      <div class="rango" id="r2">
+        <img src="/assets/images/icons/teenagers.png" alt="Imagen de adolecente">
+        <span>Es un teen</span>      
+      </div>
+      <div class="rango" id="r3">
+        <img src="/assets/images/icons/adult.png" alt="Imagen de adulto">
+        <span>Es un adulto</span>      
+      </div>
+      <div class="rango" id="r4">
+        <img src="/assets/images/icons/senior.png" alt="Imagen de viejo">
+        <span>Es un anciano</span>
+      </div>
+      
+    </section>
+    <div id="error-case" *ngIf="error">
+        Invalid name or Network Error
+      </div>
+  </div>
+</ion-content>

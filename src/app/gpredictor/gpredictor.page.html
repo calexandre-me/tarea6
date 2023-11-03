@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Predictor de genero</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container-gpredictor">
+    <div id="decoration">
+      <img src="/assets/images/genderbg.svg" alt="Genero decoracion">
+    </div>
+    <div id="info-indicator">
+      
+      <ion-button id="click-trigger">
+        Info <ion-icon name="help-circle-outline" size="auto"></ion-icon> 
+      </ion-button>
+      <ion-popover trigger="click-trigger" triggerAction="click">
+        <ng-template>
+          <ion-content style="font-size: 14px;" class="ion-padding">
+            <p>En la cajita de texto abajo, escribe un nombre valido de persona y se le indicar&aacute; si es un nombre de hombre o de mujer.</p>
+            <ul>
+              <li>Blue/Azul: nombre de hombre</li>
+              <li>Pink/Rosado: nombre de mujer</li>
+            </ul>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </div>
+
+    <ion-item >
+      <ion-input [(ngModel)]="nombre"  style="text-align: center;" placeholder="Escribe un nombre aqui"></ion-input>
+    </ion-item>
+    
+    <ion-button (click)="gpredictar()" size="default" expand="block">VERIFICAR</ion-button>
+    
+    <section id="result-section">
+      <div class="genero" id="male" *ngIf="male===true">
+        <ion-icon name="man-outline" size="large"></ion-icon>
+      </div>
+      <div class="genero" id="female" *ngIf="female===true">
+        <ion-icon name="woman-outline" size="large"></ion-icon>      
+      </div>
+      <div id="error-case" *ngIf="error===true">
+        Se produj&oacute; un error
+      </div>
+    </section>
+    
+  </div>
+</ion-content>

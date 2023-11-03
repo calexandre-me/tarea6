@@ -1,0 +1,60 @@
+.container-gpredictor{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:12px;
+    position: relative;
+}
+
+#decoration{
+    width: 100%;
+    height: 55vw;
+    position: absolute;
+    left: 0;
+    top: 1%;
+    background-color: red;
+    opacity: 0.25;
+}
+
+#info-indicator{
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+#result-section{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}
+
+#result-section .genero{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+#result-section #male{
+    border: 4px solid rgb(184, 184, 255);
+    background: blue;
+}
+
+#result-section #female{
+    border: 4px solid pink;
+    background:  #faa9b6;  
+}
+
+#result-section #error-case{
+    text-align: center;
+    color: red;
+}
+

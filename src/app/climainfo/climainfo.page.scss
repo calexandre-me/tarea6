@@ -1,0 +1,32 @@
+.container-climainfo{
+    display: flex;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-climainfo #hora{
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 1px gray;
+}
+
+#clima-info{
+    width: 100%;
+    margin-top: 16px;
+}
+
+#clima-info img{
+    
+    display: block;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+
+#clima-info p{
+    text-align: center;
+    color: red;
+}
